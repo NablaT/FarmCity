@@ -1,11 +1,11 @@
-<div *ngIf="pageToShow==0">
+<div *ngIf="pageToShow==1">
     <connection-content (sendCurrentUser)="instantiateUser($event)" ></connection-content>
     <!--<iframe src="components/scripts/loading.html"></iframe>-->
 </div>
-<div *ngIf="pageToShow==1">
+<div *ngIf="pageToShow==2">
     <home></home>
 </div>
-<div *ngIf="pageToShow==2">
+<div *ngIf="pageToShow==0">
 
     <div class="header">
         <header></header>
