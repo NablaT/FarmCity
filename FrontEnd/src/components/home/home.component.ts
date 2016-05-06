@@ -11,7 +11,7 @@ import {LeftBarComponent} from "../left-bar/left-bar.component";
     moduleId: module.id,
     templateUrl: './home.component.html',
     styleUrls : ['./home.component.css'],
-    providers: [GardenViewComponent, LeftBarComponent]
+    directives: [GardenViewComponent, LeftBarComponent]
 })
 export class HomeComponent {
 
