@@ -99,9 +99,15 @@ export class LogInComponent{
      * we build a JSON from data given by user (couple login/password) and then we send the data to the server.
      */
     onSubmit() {
+        this.user= new UserComponent("", "", "",
+            "", false, false, false,false, "", "",20, "", 0,
+            "");
+        this.submitted = true;
+        this.sendUser.emit(this.user);
+        /*
         let finalUserJSON = this.buildUserJSON();
         this._manageUserService.connect(finalUserJSON).then(
             user => this.redirect(user),
-            error => this.errorFromServer = <any> error);
+            error => this.errorFromServer = <any> error);*/
     }
 }
