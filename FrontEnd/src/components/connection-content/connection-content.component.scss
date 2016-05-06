@@ -1,6 +1,6 @@
 .titleApp{
   text-align: center;
-  color:rgb(0,99,167);
+  color:rgb(15,132,66);
 }
 
 .connectionContent{
@@ -61,7 +61,7 @@
 **/
 @media only screen and (min-width: 64.063em) {
   .contentRow > .loginContent{
-    padding-top:10%;
+    padding-top:5%;
     //height:100%;
   }
 
@@ -76,7 +76,7 @@
 **/
 @media only screen and (max-width: 64.063em) and (min-width:40.063em) {
   .loginContent {
-    padding-top: 10%;
+    padding-top: 5%;
   }
   .titleApp{
     margin-top:2%;
