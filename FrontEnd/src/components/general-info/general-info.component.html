@@ -1,1 +1,16 @@
-<h1> Hey, I'm GeneralInfoComponent !</h1>
+<div class="row">
+    <div class="generalInfo" *ngFor="#information of informationList">
+        <div class="title">
+            {{information.title}}
+        </div>
+        <div class="meteo">
+            {{information.meteo}}
+        </div>
+        <div class="water">
+            {{information.water}}
+        </div>
+        <div class="general">
+            {{information.general}}
+        </div>
+    </div>
+</div>

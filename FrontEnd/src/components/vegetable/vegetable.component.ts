@@ -13,9 +13,10 @@ import {Component} from 'angular2/core';
 export class VegetableComponent {
 
     constructor(
-        public name:string,
-        public growingLvl:number,
-        public waterLvl:number,
-        public info:string
+        public name?:string,
+        public growingLvl?:number,
+        public waterLvl?:number,
+        public info?:string,
+        public pathImage?:string
     ){}
 }
