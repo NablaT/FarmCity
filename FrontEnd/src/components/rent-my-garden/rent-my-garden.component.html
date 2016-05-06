@@ -1,1 +1,79 @@
-<h1> Hey, I'm RentMyGardenComponent !</h1>
+<div class="row">
+    <div class="large-offset-1 medium-offset-1 small-offset-1">
+        <label>
+            <h2> Rent my garden</h2>
+        </label>
+    </div>
+</div>
+<div [hidden]="submitted">
+    <div [hidden]="formCorrectlyFilled" class="row">
+        <div class="filling_error large-4 large-offset-4 medium-4 medium-offset-4 small-4 small-offset-4 end ">
+            <label class="error_message"> Please choose Metrics or/and Performance</label>
+        </div>
+    </div>
+    <form (ngSubmit)="onSubmit()" #userForm="ngForm">
+        <div class="row">
+            <div class="large-4  medium-4 medium-offset-2 large-offset-2 columns">
+                <label>Name of your garden
+                    <input type="text" placeholder="" required
+                           [(ngModel)]="garden.name" ngControl="name" #spy/>
+                </label>
+            </div>
+            <div class="large-4 medium-4 columns end">
+                <div class="row collapse">
+                    <label>Garden address</label>
+                    <div class="small-9 columns">
+                        <input type="text" placeholder="" required [(ngModel)]="garden.location"/>
+                    </div>
+                    <div class="small-3 columns">
+                        <span class="postfix"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="large-3  medium-4 medium-offset-2 large-offset-2 columns">
+                <label>Surface (in m2)
+                    <input type="text" placeholder="" required
+                           [(ngModel)]="garden.pieces" ngControl="name" #spy/>
+                </label>
+            </div>
+            <div class="large-2 medium-4 columns end  ">
+                <div class="row collapse">
+                    <label> Price (in euros)</label>
+                    <div class="small-9 columns end ">
+                        <input type="text" placeholder="" required [(ngModel)]="garden.price"/>
+                    </div>
+                </div>
+            </div>
+            <div class="large-3 medium-4 columns end">
+                <div class="row collapse">
+                    <label> Number of pieces</label>
+                    <div class="small-9 columns end">
+                        <input type="text" placeholder="" required [(ngModel)]="garden.price"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <br>
+        <div class="row buttonRow">
+            <div class="large-1 large-offset-5 medium-4 medium-offset-5 small-offset-4 end buttonCell">
+                <button type="submit" class="button info" [disabled]="!userForm.form.valid">Submit</button>
+            </div>
+        </div>
+    </form>
+</div>
+
+<div [hidden]="!submitted">
+    <div class="row">
+        <div class=" large-4 large-offset-2 medium-4 medium-offset-2 small-4 small-offset-2">
+            <label> The user has been succesfully added </label>
+            <div *ngIf="userManager_error">An error occurred while loading the users!</div>
+            <ul>
+                <li *ngFor="#user of userManager">{{user.full_name}}</li>
+            </ul>
+
+        </div>
+    </div>
+</div>
