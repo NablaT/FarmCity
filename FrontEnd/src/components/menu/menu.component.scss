@@ -2,9 +2,21 @@
   color:white;
   font-size: 25px;
   text-align: center;
+  padding:0;
+  vertical-align: center;
 }
 
 .menu{
   background-color:rgb(53,53,51);
   margin-left:0px;
+}
+.row{
+  width:100%;
+  margin-left:0px;
+  margin-top:5px;
+  margin-bottom:5px;
+}
+
+.iconMenu, .iconAlert{
+  margin-top:5px;
 }
