@@ -45,6 +45,9 @@ import {GardenListComponent} from "../garden-list/garden-list.component";
  * component.
  */
 @RouteConfig([
+
+
+    {path: '/', name: 'HomePage', component: HomePageComponent},
     {path: '/home-page', name: 'HomePage', component: HomePageComponent},
     {path: '/rent-my-garden', name: 'RentMyGarden', component: RentMyGardenComponent},
     {path: '/user-list', name: 'UserList', component: UserListComponent},
