@@ -3,6 +3,7 @@
  */
 
 import {Component} from 'angular2/core';
+import {GardenComponent} from "../garden/garden.component";
 
 @Component({
     selector: 'garden-list',
@@ -10,4 +11,11 @@ import {Component} from 'angular2/core';
     templateUrl: './garden-list.component.html',
     styleUrls : ['./garden-list.component.css']
 })
-export class GardenListComponent { }
+export class GardenListComponent {
+
+    public gardenList:GardenComponent[];
+
+    constructor(){
+
+    }
+}
