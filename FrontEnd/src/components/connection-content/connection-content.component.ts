@@ -47,9 +47,9 @@ export class ConnectionContentComponent {
     public currentPageValue;
 
     constructor(){
-        this.emailAddress="mailto:GBS-GPA-SCS-MPS-Services@amadeus.com";
-        this.subjectEmail="?subject=MPS Metrics and Performance";
-        this.emailCopy="&cc=jdoucet@amadeus.com";
+        this.emailAddress="mailto:ourfutureemail@gardenshare.com";
+        this.subjectEmail="?subject=Garden Share";
+        this.emailCopy="&cc=anotherfutureemail@gardenshare.com";
         this.emailContent=this.emailAddress+this.subjectEmail+this.emailCopy;
         this.modelForChild={errorMessage: '', errorRaised: false};
         this.connectionFailed=false;

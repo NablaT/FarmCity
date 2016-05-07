@@ -15,6 +15,7 @@ import {ConnectionContentComponent} from "../connection-content/connection-conte
 import {UserComponent} from "../user/user.component";
 import {HomePageComponent} from "../home-page/home-page.component";
 import {RentMyGardenComponent} from "../rent-my-garden/rent-my-garden.component";
+import {GardenListComponent} from "../garden-list/garden-list.component";
 
 
 /**
@@ -30,7 +31,8 @@ import {RentMyGardenComponent} from "../rent-my-garden/rent-my-garden.component"
         ROUTER_DIRECTIVES,
         HeaderComponent,
         ConnectionContentComponent,
-        HomeComponent
+        HomeComponent,
+        GardenListComponent
     ],
     providers: [ManageUsersService, ConnectionContentComponent]
 })
@@ -45,11 +47,9 @@ import {RentMyGardenComponent} from "../rent-my-garden/rent-my-garden.component"
 @RouteConfig([
     {path: '/home-page', name: 'HomePage', component: HomePageComponent},
     {path: '/rent-my-garden', name: 'RentMyGarden', component: RentMyGardenComponent},
-    {path: '/news', name: 'News', component: NewsComponent},
-    {path: '/add-user', name: 'AddUser', component: AddUserComponent},
     {path: '/user-list', name: 'UserList', component: UserListComponent},
     {path: '/connection-content', name: 'ConnectionContent', component: ConnectionContentComponent},
-    {path: '/log-out', name: 'LogOut', component: LogOutComponent}
+    {path: '/garden-list', name: 'GardenList', component: GardenListComponent}
 ])
 
 export class AppComponent {
@@ -57,9 +57,9 @@ export class AppComponent {
     public userManager_error = false;
     /**
      * Page to show is variable which contains an integer
-     * If pageToShow = 0 => user is not connected => show connection content
-     * If pageToShow = 1 => user is connected and we show the home page
-     * If pageToShow = 2 => user is connected and the user has choosen the part of the website
+     * If pageToShow = 0 => HOMEPAGE
+     * If pageToShow = 1 => LOGIN
+     * If pageToShow = 2 => GARDEN VIEW
      * from the home page.
      */
     public pageToShow;
