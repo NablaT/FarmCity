@@ -1,4 +1,4 @@
-import {Component} from 'angular2/core';
+import {Component, Redirect} from 'angular2/core';
 import {MetricsComponent} from "../metrics/metrics.component";
 import {PerformanceComponent} from "../performance/performance.component";
 import {NewsComponent} from "../news/news.component";
@@ -45,8 +45,6 @@ import {GardenListComponent} from "../garden-list/garden-list.component";
  * component.
  */
 @RouteConfig([
-
-
     {path: '/', name: 'HomePage', component: HomePageComponent},
     {path: '/home-page', name: 'HomePage', component: HomePageComponent},
     {path: '/rent-my-garden', name: 'RentMyGarden', component: RentMyGardenComponent},
@@ -66,10 +64,11 @@ export class AppComponent {
      * from the home page.
      */
     public pageToShow;
+    public hideHome;
     public message="Doesn't work";
 
     constructor(private _manageUserService: ManageUsersService){
-        this.pageToShow=0;
+        this.pageToShow=1;
         this.user = new UserComponent("", "", "",
             "", false, false, false, false, "","");
     }
@@ -79,14 +78,14 @@ export class AppComponent {
      * @param user
      */
     instantiateUser(user:UserComponent){
+        console.log("instatnatiate user");
         this.user=user;
-        if(this.user.userId>=0){
-            this.pageToShow=1;
-        }
+        this.pageToShow=0;
+        this.hideHome=1;
     }
 
     sendUser(user:UserComponent){
         console.log("je rentre in send user app");
-        this.pageToShow=1;
+        this.hideHome=0;
     }
 }

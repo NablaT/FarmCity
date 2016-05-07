@@ -1,5 +1,5 @@
 <div *ngIf="pageToShow==1">
-    <connection-content (sendCurrentUser)="instantiateUser($event)" ></connection-content>
+    <connection-content (sendCurrentUser)="instantiateUser($event)"></connection-content>
     <!--<iframe src="components/scripts/loading.html"></iframe>-->
 </div>
 <div *ngIf="pageToShow==2">
@@ -7,19 +7,26 @@
 </div>
 <div *ngIf="pageToShow==0">
 
-    <div class="header">
-        <header (sendUser)="sendUser($event)"></header>
-    </div>
-    <!--
-        Tag router-outlet: It will display the content of the selected component. If user clicks on
-        Performance, it will display the PerformanceComponent.
-    -->
-    <div class="row">
-        <router-outlet (sendUser)="sendUser($event)"></router-outlet>
+
+    <div *ngIf="hideHome==0">
+        <home></home>
     </div>
 
-    <div *ngIf="userManager_error">An error occurred while loading the users!</div>
-    <ul>
-        <li *ngFor="#user of userManager">{{user.full_name}}</li>
-    </ul>
+    <div *ngIf="hideHome==1">
+        <div class="header">
+            <header (sendUser)="sendUser($event)"></header>
+        </div>
+        <!--
+            Tag router-outlet: It will display the content of the selected component. If user clicks on
+            Performance, it will display the PerformanceComponent.
+        -->
+        <div class="row">
+            <router-outlet (sendUser)="sendUser($event)"></router-outlet>
+        </div>
+
+        <div *ngIf="userManager_error">An error occurred while loading the users!</div>
+        <ul>
+            <li *ngFor="#user of userManager">{{user.full_name}}</li>
+        </ul>
+    </div>
 </div>

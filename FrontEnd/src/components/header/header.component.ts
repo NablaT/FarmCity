@@ -29,7 +29,7 @@ export class HeaderComponent {
     }
 
     redirect(){
-        this.sendUser.emit(new UserComponent("","","","",false,false, false,false, ""));
+        this.sendUser.emit(new UserComponent("","","","",false,false, false,false, "gardenview"));
     }
 
 }

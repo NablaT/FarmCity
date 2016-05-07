@@ -36,7 +36,7 @@ export class ManageUsersService {
             .then(res =>  { <UserComponent[]>res.json()[0]}) //<UserComponent[]>res.json().data) //this.extractDatathis.extractData
             .catch(this.handleError);
     }
-
+    /*
     getPlots(){
         let headers = new Headers({'Content-Type': 'text/plain; application/x-www-form-urlencoded; multipart/form-data '});
         let options = new RequestOptions({headers: headers});
@@ -45,7 +45,7 @@ export class ManageUsersService {
             .then(res =>  { this.getPlotData(res.json());}) //<UserComponent[]>res.json().data) //this.extractDatathis.extractData
             .catch(this.handleError);
     }
-    /*
+
     getPlotData(res : JSON){
         for(let i=0;i<res.leng
     }*/
