@@ -13,13 +13,15 @@ import {Component} from 'angular2/core';
 export class GardenComponent {
 
     constructor(
-       private location:string,
-       private name:string,
-       private price:number,
-       private size:number,
-       private pieces:number,
-       private cityzone?:string,
-       private tools?:string,
-       private photo?:string
+       public location:string,
+       public name:string,
+       public price:number,
+       public size:number,
+       public pieces:number,
+       public yesSensors:boolean,
+       public noSensors:boolean,
+       public cityzone?:string,
+       public tools?:string,
+       public photo?:string
     ){}
 }

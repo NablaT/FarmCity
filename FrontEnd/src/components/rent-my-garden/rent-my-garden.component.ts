@@ -49,7 +49,7 @@ export class RentMyGardenComponent {
         this.reportsValues = ["Yes", "No"]; //TODO: TO use !
         this.user = new UserComponent("", "", "",
             "", false, false, false,false, "");
-        this.garden = new GardenComponent(null,null, null,null,null);
+        this.garden = new GardenComponent("", "",0, 0, 0,false,false);
         this.dbUserTable = ["user_id", "full_name", "email_address", "type"];
         this.reportsN = "";
         this.reportsY = "";

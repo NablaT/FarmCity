@@ -8,7 +8,7 @@
 <div [hidden]="submitted">
     <div [hidden]="formCorrectlyFilled" class="row">
         <div class="filling_error large-4 large-offset-4 medium-4 medium-offset-4 small-4 small-offset-4 end ">
-            <label class="error_message"> Please choose Metrics or/and Performance</label>
+            <label class="error_message"> Please choose if yes or no for sensors</label>
         </div>
     </div>
     <form (ngSubmit)="onSubmit()" #userForm="ngForm">
@@ -16,7 +16,7 @@
             <div class="large-4  medium-4 medium-offset-2 large-offset-2 columns">
                 <label>Name of your garden
                     <input type="text" placeholder="" required
-                           [(ngModel)]="garden.name" ngControl="name" #spy/>
+                           [(ngModel)]="user.name" ngControl="name" #spy/>
                 </label>
             </div>
             <div class="large-4 medium-4 columns end">
@@ -32,13 +32,13 @@
             </div>
         </div>
         <div class="row">
-            <div class="large-3  medium-4 medium-offset-2 large-offset-2 columns">
+            <div class="large-4  medium-4 medium-offset-2 large-offset-2 columns">
                 <label>Surface (in m2)
                     <input type="text" placeholder="" required
                            [(ngModel)]="garden.pieces" ngControl="name" #spy/>
                 </label>
             </div>
-            <div class="large-2 medium-4 columns end  ">
+            <div class="large-4  medium-4 columns end  ">
                 <div class="row collapse">
                     <label> Price (in euros)</label>
                     <div class="small-9 columns end ">
@@ -46,16 +46,24 @@
                     </div>
                 </div>
             </div>
-            <div class="large-3 medium-4 columns end">
-                <div class="row collapse">
-                    <label> Number of pieces</label>
-                    <div class="small-9 columns end">
-                        <input type="text" placeholder="" required [(ngModel)]="garden.price"/>
-                    </div>
-                </div>
+        </div>
+        <div class="row">
+            <div class="large-4  medium-4 medium-offset-2 large-offset-2 columns">
+                <label>Number of pieces
+                    <input type="text" placeholder="" required
+                           [(ngModel)]="garden.pieces" ngControl="name" #spy/>
+                </label>
+            </div>
+            <div class="large-3  medium-4 small-8 small-offset-3 large-offset-0 medium-offset-0 columns end">
+                <label>Request for sensors</label>
+
+                <input id="metrics" type="checkbox" class="postfix"  (click)="garden.yesSensors= !garden.yesSensors" ><label for="metrics" >Yes</label>
+                <input id="performance" type="checkbox" class="postfix" (click)="garden.noSensors= !garden.noSensors"><label for="performance" >No</label>
+                <!--<select>
+                    <option *ngFor="#partWeb of websitePartsValues" value="partWeb">{{partWeb}}</option>
+                </select>-->
             </div>
         </div>
-
         <br>
         <div class="row buttonRow">
             <div class="large-1 large-offset-5 medium-4 medium-offset-5 small-offset-4 end buttonCell">

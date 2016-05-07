@@ -8,7 +8,7 @@
 <div *ngIf="pageToShow==0">
 
     <div class="header">
-        <header></header>
+        <header (sendUser)="sendUser($event)"></header>
     </div>
     <!--
         Tag router-outlet: It will display the content of the selected component. If user clicks on

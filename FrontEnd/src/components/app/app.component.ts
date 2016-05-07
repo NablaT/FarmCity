@@ -81,4 +81,9 @@ export class AppComponent {
             this.pageToShow=1;
         }
     }
+
+    sendUser(user:UserComponent){
+        console.log("je rentre in send user app");
+        this.pageToShow=1;
+    }
 }
