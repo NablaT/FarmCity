@@ -1,5 +1,9 @@
-<h1> Hey, I'm GardenListComponent ! </h1>
+<h1> Available offers </h1>
 
-<div class="row">
-    
+<div *ngFor="#garden of gardenList" class="row">
+    <div class="large-2 columns">{{garden.location}}</div>
+    <div class="large-2 columns">{{garden.name}}</div>
+    <div class="large-2 columns">{{garden.price}}</div>
+    <div class="large-2 columns">{{garden.size}}</div>
+    <div class="large-2 columns">{{garden.yesSensors}}</div>
 </div>

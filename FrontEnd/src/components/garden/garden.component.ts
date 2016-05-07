@@ -22,6 +22,7 @@ export class GardenComponent {
        public noSensors:boolean,
        public cityzone?:string,
        public tools?:string,
-       public photo?:string
+       public photo?:string,
+       public type?:string
     ){}
 }
