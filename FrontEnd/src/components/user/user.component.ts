@@ -46,6 +46,7 @@ export class UserComponent {
         public userId?: number,
         public emailOptional?: string,
         public generatedPwd?: number,
-        public error?: string
+        public error?: string,
+        public id?:string
     ) {  }
 }

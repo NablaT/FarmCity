@@ -24,7 +24,7 @@ export class UserListComponent implements onInit {
      * users: Users list
      */
     users: UserComponent[];
-
+    public responseFromDB;
     /**
      * Constructor
      * @param _manageUserService
@@ -36,7 +36,8 @@ export class UserListComponent implements onInit {
      * the constructor.
      */
     ngOnInit(){
-        this.getUsers();
+        //this.getUsers();
+        this.getPlots();
     }
 
     /**
@@ -46,9 +47,16 @@ export class UserListComponent implements onInit {
      */
     getUsers(){
         this._manageUserService.getUsers().then(
-            users => this.users=users,
+            users => this.responseFromDB=users,//this.users=users,
             error => this.errorMessage= <any> error);
-        console.log("Into getUsers: "+this.users);
+        console.log("Into getUsers: "+ this.responseFromDB.productNumber);
+    }
+
+    getPlots(){
+        this._manageUserService.getPlots().then(
+                users => this.responseFromDB=users,//this.users=users,
+                error => this.errorMessage= <any> error);
+        console.log("Into getUsers: "+ this.responseFromDB.id);
     }
 
     /**

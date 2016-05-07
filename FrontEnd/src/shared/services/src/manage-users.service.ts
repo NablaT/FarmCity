@@ -13,9 +13,11 @@ import {UserComponent} from "../../../components/user/user.component";
 export class ManageUsersService {
 
     private users;
-    private _serverLink ='http://ncevc-04296:3500/users';
+    private _serverLink = 'http://catalogservices.eu-gb.mybluemix.net/test';//'http://catalogservices.eu-gb.mybluemix.net/project';
     private extensionLink=["/connect"];
+    private _serverLinkPlots = 'http://catalogservices.eu-gb.mybluemix.net/plots';//'http://catalogservices.eu-gb.mybluemix.net/project';
 
+    private _service= '';
     /**
      * Constructor
      * @param http
@@ -26,11 +28,36 @@ export class ManageUsersService {
      * Function getUsers. This function makes a get HTTP request to the server
      * @returns {Promise<*>|Promise<T>}
      */
-    getUsers() {
-        return this.http.get(this._serverLink)
+    getUsers() {//'Access-Control-Allow-Origin: *'
+        let headers = new Headers({'Content-Type': 'text/plain; application/x-www-form-urlencoded; multipart/form-data '});
+        let options = new RequestOptions({headers: headers});
+        return this.http.get(this._serverLink, options)
             .toPromise()
-            .then(res => <UserComponent[]> res.json())
+            .then(res =>  { <UserComponent[]>res.json()[0]}) //<UserComponent[]>res.json().data) //this.extractDatathis.extractData
             .catch(this.handleError);
+    }
+
+    getPlots(){
+        let headers = new Headers({'Content-Type': 'text/plain; application/x-www-form-urlencoded; multipart/form-data '});
+        let options = new RequestOptions({headers: headers});
+        return this.http.get(this._serverLinkPlots, options)
+            .toPromise()
+            .then(res =>  { this.getPlotData(res.json());}) //<UserComponent[]>res.json().data) //this.extractDatathis.extractData
+            .catch(this.handleError);
+    }
+    /*
+    getPlotData(res : JSON){
+        for(let i=0;i<res.leng
+    }*/
+
+    private extractData(res: Response) {
+        console.log("data");
+        if (res.status < 200 || res.status >= 300) {
+            throw new Error('Bad response status: ' + res.status);
+        }
+        let body = res.json();
+        console.log("into extract data: "+ body);
+        return body.data || { };
     }
 
     /**
@@ -49,6 +76,7 @@ export class ManageUsersService {
             .then(res=> <UserComponent> res.json().data)
             .catch(this.handleError);
     }
+
 
     /**
      * Function updateUser. This function updates user data.
