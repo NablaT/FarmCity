@@ -10,4 +10,11 @@ import {Component} from 'angular2/core';
     templateUrl: './home-page.component.html',
     styleUrls : ['./home-page.component.css']
 })
-export class HomePageComponent { }
+export class HomePageComponent {
+
+    public photo:string;
+
+    constructor(){
+        this.photo="../assets/imageLocation/home.png";
+    }
+}

@@ -15,7 +15,7 @@
         Performance, it will display the PerformanceComponent.
     -->
     <div class="row">
-        <router-outlet></router-outlet>
+        <router-outlet (sendUser)="sendUser($event)"></router-outlet>
     </div>
 
     <div *ngIf="userManager_error">An error occurred while loading the users!</div>
