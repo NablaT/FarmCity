@@ -1,7 +1,29 @@
 .imageContainer{
+  position:absolute;
   z-index:1;
 }
 
 .gardenContent{
+  position:absolute;
   z-index:300;
 }
+
+.firstRow, .secondRow, .threeRow{
+  //width:600%;
+  width:120%;
+  margin-left:15%;
+  margin-top:60px;
+}
+
+.secondRow{
+  margin-top:10%;
+}
+
+.threeRow{
+  margin-top:70px;
+}
+
+.image2{
+  margin-left: 20%;
+}
+
