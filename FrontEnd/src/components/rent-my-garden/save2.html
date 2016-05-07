@@ -8,7 +8,7 @@
 <div [hidden]="submitted">
     <div [hidden]="formCorrectlyFilled" class="row">
         <div class="filling_error large-4 large-offset-4 medium-4 medium-offset-4 small-4 small-offset-4 end ">
-            <label class="error_message"> Please choose if yes or no for sensors</label>
+            <label class="error_message"> Please choose Metrics or/and Performance</label>
         </div>
     </div>
     <form (ngSubmit)="onSubmit()" #userForm="ngForm">
@@ -35,14 +35,14 @@
             <div class="large-4  medium-4 medium-offset-2 large-offset-2 columns">
                 <label>Surface (in m2)
                     <input type="text" placeholder="" required
-                           [(ngModel)]="user.login" ngControl="login" #spy/>
+                           [(ngModel)]="user.fullName" ngControl="fullName" #spy/>
                 </label>
             </div>
             <div class="large-4 medium-4 columns end">
                 <div class="row collapse">
-                    <label>Price (in euros)</label>
+                    <label>Garden address</label>
                     <div class="small-9 columns">
-                        <input type="text" placeholder="" required [(ngModel)]="user.type"/>
+                        <input type="text" placeholder="" required [(ngModel)]="user.email"/>
                     </div>
                     <div class="small-3 columns">
                         <span class="postfix"></span>
@@ -51,14 +51,23 @@
             </div>
         </div>
         <div class="row">
-            <div class="large-4  medium-4 medium-offset-2 large-offset-2 columns">
-                <label>Number of pieces
-                    <input type="text" placeholder="" required
-                           [(ngModel)]="user.sendReport" ngControl="sendReport" #spy/>
+            <div class="large-3 large-offset-2  medium-2 medium-offset-2 end columns">
+                <label> User type
+                    <select [(ngModel)]="user.type" required>
+                        <option *ngFor="#usertype of userTypesValues" ng-value="usertype">{{usertype}}</option>
+                    </select>
                 </label>
             </div>
-
-            <div class="large-4  medium-4 small-8 small-offset-3 large-offset-0 medium-offset-0 columns end">
+            <div class="large-2 medium-2 small-8 small-offset-3 large-offset-0 medium-offset-0 columns ">
+                <label>Send report</label>
+                <select [(ngModel)]="user.sendReport" required>
+                    <option *ngFor="#reportValue of reportsValues" ng-value="reportValue">{{reportValue}}</option>
+                </select>
+                <!--<input  id="yes" name="report" type="radio" class="postfix" [(ngModel)]="user.sendReport" value="yes" ><label for="yes">Yes</label>
+                <input  id="no" name="report" type="radio" class="postfix" [(ngModel)]="user.sendReport" value="no" ><label for="no">No</label>
+                -->
+            </div>
+            <div class="large-3  medium-4 small-8 small-offset-3 large-offset-0 medium-offset-0 columns end">
                 <label>Part</label>
 
                 <input id="metrics" type="checkbox" class="postfix"  (click)="user.metrics= !user.metrics" ><label for="metrics" >Metrics</label>

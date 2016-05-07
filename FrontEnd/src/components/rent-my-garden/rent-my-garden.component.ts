@@ -112,12 +112,23 @@ export class RentMyGardenComponent {
         return login;
     }
 
+    transformModelIntoGardenComponent(){
+        this.garden.name=this.user.fullName;
+        this.garden.address=this.user.email;
+        this.garden.surface=this.user.login;
+        this.garden.price=this.user.type;
+        this.garden.pieces=this.user.senReport;
+        this.garden.yesSensors=this.user.metrics;
+        this.garden.noSensors=this.user.performance;
+    }
+
     /**
      * Function onSubmit.
      * The function is called when user click on the submit button in the form. If the form has been correctly filled,
      * we add the new user to the database by calling the manageUser service function  "AddUser".
      */
     onSubmit() {
+        this.transformModelIntoGardenComponent();
         if (this.formComplete()) {
             this.submitted = true;
             let finalUserJSON = this.buildUserJSON();
