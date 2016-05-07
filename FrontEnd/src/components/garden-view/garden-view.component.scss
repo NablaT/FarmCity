@@ -1,3 +1,7 @@
-.all{
-  background:url("../../assets/garden.PNG");
+.imageContainer{
+  z-index:1;
+}
+
+.gardenContent{
+  z-index:300;
 }
